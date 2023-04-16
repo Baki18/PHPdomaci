@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    position: fixed;
+    margin-top: 0px;
+    background-color: rgb(241, 128, 128);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    top: 0;
+    width: 100%;
+}
+nav{
+    flex: 1;
+    text-align: right;
+}
+nav ul{
+    font-size: 40px;
+    display: inline-block;
+    list-style-type: none;
+}
+nav ul li{
+    border: #ffffff;
+    display: inline-block;
+    margin-right: 20px;
+}
+.logo img{
+    border-radius: 30%;
+}
+a{
+    text-decoration: none;
+    color: #ffffff;
+}
+p{
+    text-decoration: none;
+    color: #000000;
+    text-align: left;
+}
+.containerGlavna{
+    margin-top: 160px;
+    background-color: rgb(255, 225, 225);
+    padding-left: 100px;
+    padding-right: 100px;
+    max-height: fit-content;
+}
+.row{
+    display: flex;
+    align-items: left;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.col-2{
+    border: #555;
+    flex-basis: 50%;
+    min-width: 300px;
+}
+.col-2 img{
+    max-width: 100%;
+    max-height: 80%;
+    padding: 40px 0;
+}
+h1.moto{
+    font-size: 50px;
+    margin-top: 20%;
+}
+p.poziv{
+    font-size: 35px;
+}
+p.log{
+    font-size: 40px;
+}
+button.dugmePrijava{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 35px;
+    padding: 10px 20px;
+}
