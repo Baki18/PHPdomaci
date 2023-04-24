@@ -6,8 +6,9 @@ if (isset($_POST['submit'])) {
     $naziv = $_POST['naziv'];
     $cena = $_POST['cena'];
     $opis = $_POST['opis'];
+    $korId = $_POST['korId'];
 
-    $sql = "INSERT INTO crudoperacije VALUES ('$naziv', '$cena', '$opis')";
+    $sql = "INSERT INTO komentari VALUES ('$naziv', '$cena', '$opis', '$korId')";
 
     $result = mysqli_query($conn, $sql);
 }
@@ -34,7 +35,7 @@ if (isset($_POST['submit'])) {
                 <nav>
                     <ul>
                         <li><a href="index.php">Glavna</a></li>
-                        <li><a href="">Proizvodi</a></li>
+                        <li><a href="proizvodi.php">Proizvodi</a></li>
                         <li><a href="onama.php">O nama</a></li>
                         <li><a href="prijava.php">Prijava</a></li>
                     </ul>
@@ -68,13 +69,18 @@ if (isset($_POST['submit'])) {
             </div>
             <div class="form-group">
                 <label for="cena"><b>Cena:</b></label>
-                <input type="number" class="form-control" id="cena" name="cena" step="0.01" required>
+                <input type="number" class="form-control" id="cena" name="cena" step="10" required>
             </div>
             <div class="form-group">
                 <label for="opis"><b>Komentar:</b></label>
                 <textarea class="form-control" id="opis" name="opis" rows="4" cols="50"></textarea>
             </div>
+            <div class="form-group">
+                <label for="korId"><b>Korisnikov ID:</b></label>
+                <input type="number" class="form-control" id="korId" name="korId" required>
+            </div>
             <button type="submit" class="btn btn-primary" name="submit">Potvrdi</button>
+            <button type="submit" class="btn btn-primary" name="deletebtn" id="deletebtn">Obriši komentare</button>
         </form>
     </div>
 </body>
@@ -110,16 +116,17 @@ if (isset($_POST['submit'])) {
             die("Connection failed: " . $mysqli->connect_error);
         }
 
-        $stmt = $mysqli->prepare("SELECT * FROM crudoperacije");
+        $stmt = $mysqli->prepare("SELECT * FROM komentari");
         $stmt->execute();
 
-        $stmt->bind_result($naziv, $cena, $opis); 
+        $stmt->bind_result($naziv, $cena, $opis, $korId); 
 
         echo "<table>";
         echo "<tr>";
         echo "<th>Naziv proizvoda</th>";
         echo "<th>Cena</th>";
         echo "<th>Komentar</th>";
+        echo "<th>Korisnikov ID</th>";
         echo "</tr>";
 
         while($stmt->fetch()){
@@ -127,6 +134,7 @@ if (isset($_POST['submit'])) {
             echo "<td>$naziv</td>";
             echo "<td>$cena</td>";
             echo "<td>$opis</td>";
+            echo "<td>$korId</td>";
             echo "</tr>";
         }
 

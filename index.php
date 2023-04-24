@@ -13,7 +13,7 @@
                 <nav>
                     <ul>
                         <li><a href="index.php">Glavna</a></li>
-                        <li><a href="">Proizvodi</a></li>
+                        <li><a href="proizvodi.php">Proizvodi</a></li>
                         <li><a href="onama.php">O nama</a></li>
                         <li><a href="prijava.php">Prijava</a></li>
                     </ul>

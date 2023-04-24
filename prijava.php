@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,17 +13,42 @@
                     <nav>
                     <h1 class="porukaDobrodoslice">
                     <?php
+                        include "klase/korisnik.php";
                         session_start();
                         if(isset($_POST['korIme']) && isset($_POST['lozinka'])){
                             $un = $_POST['korIme'];
                             $pw = $_POST['lozinka'];
-                            echo "Dobrodošli, $un!";
+
+                            $kor = new User();
+                            
+                            $conn = mysqli_connect("localhost", "root", "", "kolokvijumi");
+                            if (!$conn) {
+                                die("Connection failed: " . mysqli_connect_error());
+                            }
+
+
+                            $sql = "SELECT name FROM user WHERE username = '$un' AND password = '$pw'";
+                            $result = mysqli_query($conn, $sql);
+                            if(mysqli_num_rows($result) > 0) {
+                                $row = mysqli_fetch_assoc($result);
+                                $name = $row['name'];
+                                $kor->setName($name);
+                                $kor->setUsername($un);
+                                $kor->setPassword($pw);
+
+                                echo "Dobrodošli, " . $kor->getName();
+                            } else {
+                                echo "Pogrešno korisničko ime ili lozinka!";
+                            }
+
+                            mysqli_close($conn);
                         }
-                    ?>
+                        ?>
+
                     </h1>
                         <ul>
                             <li><a href="index.php">Glavna</a></li>
-                            <li><a href="">Proizvodi</a></li>
+                            <li><a href="proizvodi.php">Proizvodi</a></li>
                             <li><a href="onama.php">O nama</a></li>
                             <li><a href="prijava.php">Prijava</a></li>
                         </ul>
