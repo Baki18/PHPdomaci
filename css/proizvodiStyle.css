@@ -40,9 +40,10 @@ nav ul li{
   }
 
   .product-container {
+    margin-left: 80px;
     margin-top: 120px;
     display: flex;
-    gap: 20px;
+    gap: 50px;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
@@ -52,8 +53,8 @@ nav ul li{
     padding: 10px;
     border: 1px solid #000;
     text-align: center;
-    width: 200px;
-    height: 350px;
+    width: 220px;
+    height: 400px;
     margin: 20px;
     display: flex;
     flex-direction: column;
@@ -100,7 +101,7 @@ nav ul li{
   
   #cart-items-count {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 30px;
     margin-right: 10px;
   }
   

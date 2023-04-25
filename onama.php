@@ -119,7 +119,14 @@ if (isset($_POST['submit'])) {
         $stmt = $mysqli->prepare("SELECT * FROM komentari");
         $stmt->execute();
 
-        $stmt->bind_result($naziv, $cena, $opis, $korId); 
+        $stmt->bind_result($naziv, $cena, $opis, $korId);
+        
+        include "klase/koment.php";
+        $kom = new Komentar();
+        $kom->setNaziv($naziv);
+        $kom->setCena($cena);
+        $kom->setOpis($opis);
+        $kom->setKorId($korId);
 
         echo "<table>";
         echo "<tr>";
@@ -130,11 +137,16 @@ if (isset($_POST['submit'])) {
         echo "</tr>";
 
         while($stmt->fetch()){
+            $kom = new Komentar();
+            $kom->setNaziv($naziv);
+            $kom->setCena($cena);
+            $kom->setOpis($opis);
+            $kom->setKorId($korId);
             echo "<tr>";
-            echo "<td>$naziv</td>";
-            echo "<td>$cena</td>";
-            echo "<td>$opis</td>";
-            echo "<td>$korId</td>";
+            echo "<td>".$kom->getNaziv()."</td>";
+            echo "<td>".$kom->getCena()."</td>";
+            echo "<td>".$kom->getOpis()."</td>";
+            echo "<td>".$kom->getKorId()."</td>";
             echo "</tr>";
         }
 

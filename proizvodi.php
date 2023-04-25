@@ -25,37 +25,37 @@
       <img src="img/slikaCipela.jpg" alt="Cipele">
       <h2>Cipele</h2>
       <p>cena: 5600</p>
-      <button onclick="addToCart('Cipele')">Add to Cart</button>
+      <button onclick="addToCart('Cipele')">Dodaj u korpu</button>
     </div>
     <div class="product">
       <img src="img/slikaFarmerki.jpg" alt="Farmerke">
       <h2>Farmerke</h2>
       <p>cena: 4000</p>
-      <button onclick="addToCart('Farmerke')">Add to Cart</button>
+      <button onclick="addToCart('Farmerke')">Dodaj u korpu</button>
     </div>
     <div class="product">
       <img src="img/slikaMajice.jpg" alt="Majica">
       <h2>Majica</h2>
       <p>cena: 2500</p>
-      <button onclick="addToCart('Majica')">Add to Cart</button>
+      <button onclick="addToCart('Majica')">Dodaj u korpu</button>
     </div>
     <div class="product">
       <img src="img/slikaPatika.png" alt="Patike">
       <h2>Patike</h2>
       <p>cena: 11000</p>
-      <button onclick="addToCart('Patike')">Add to Cart</button>
+      <button onclick="addToCart('Patike')">Dodaj u korpu</button>
     </div>
     <div class="product">
       <img src="img/slikaKosulje.jpg" alt="Kosulja">
       <h2>Kosulja</h2>
       <p>cena: 4200</p>
-      <button onclick="addToCart('Kosulja')">Add to Cart</button>
+      <button onclick="addToCart('Kosulja')">Dodaj u korpu</button>
     </div>
   </div>
 
 <div class="cart-container">
   <div id="cart-icon">&#128722;</div>
-  <h1>My Cart <span id="cart-items-count">0</span></h1>
+  <h1>Moja korpa  <span id="cart-items-count">0</span></h1>
   <ul id="cart-items"></ul>
 </div>
 
