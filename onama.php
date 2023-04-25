@@ -1,16 +1,9 @@
 <?php
-
-include "dbConn.php";
-
-if (isset($_POST['submitbtn'])) {
-    $naziv = $_POST['naziv'];
-    $cena = $_POST['cena'];
-    $opis = $_POST['opis'];
-    $korId = $_POST['korId'];
-
-    $sql = "INSERT INTO komentari VALUES ('$naziv', '$cena', '$opis', '$korId')";
-
-    $result = mysqli_query($conn, $sql);
+include "klase/korisnik.php";
+$user = new User();
+session_start();
+if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
 }
 
 ?>
@@ -33,6 +26,7 @@ if (isset($_POST['submitbtn'])) {
                 <div class="logo">
                     <img src="img/shopLogo.PNG" width="160px">
                 </div>
+                <h1><?php if($user!=null){echo "   Dobrodošli, ". $user->getName(). "!";}else{echo "Dobrodosli";};?></h1>
                 <nav>
                     <ul>
                         <li><a href="index.php">Glavna</a></li>
@@ -62,9 +56,10 @@ if (isset($_POST['submitbtn'])) {
 </head>
 <body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="AJAX/komentariAjax.js"></script>
     <div class="container mt-5">
         <h1 class="mb-4">Ostavite komentar</h1>
-        <form method="post">
+        <form method="post" onsubmit="radSaKomentarima(); return false;">
             <div class="form-group">
                 <label for="naziv"><b>Naziv:</b></label>
                 <input type="text" class="form-control" id="naziv" name="naziv" required>
@@ -82,7 +77,7 @@ if (isset($_POST['submitbtn'])) {
                 <input type="number" class="form-control" id="korId" name="korId" required>
             </div>
             <button type="submit" class="btn btn-primary" name="submitbtn" id="submitbtn">Potvrdi</button>
-            <button type="submit" class="btn btn-primary" name="deletebtn" id="deletebtn">Obriši komentare</button>
+            <button class="btn btn-primary" name="deletebtn" id="deletebtn" onclick="obrisiKomentare();">Obriši komentare</button>
         </form>
     </div>
 </body>
@@ -130,7 +125,7 @@ if (isset($_POST['submitbtn'])) {
         $kom->setOpis($opis);
         $kom->setKorId($korId);
 
-        echo "<table>";
+        echo "<table id='tblKomentari'>";
         echo "<tr>";
         echo "<th>Naziv proizvoda</th>";
         echo "<th>Cena</th>";

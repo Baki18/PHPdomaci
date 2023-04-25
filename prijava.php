@@ -36,7 +36,8 @@
                                 $kor->setUsername($un);
                                 $kor->setPassword($pw);
 
-                                echo "Dobrodošli, " . $kor->getName();
+                                $_SESSION['user']=$kor;;
+                                header("Location: index.php");
                             } else {
                                 echo "Pogrešno korisničko ime ili lozinka!";
                             }

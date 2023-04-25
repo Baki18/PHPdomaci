@@ -1,3 +1,13 @@
+<?php
+include "klase/korisnik.php";
+$user = new User();
+session_start();
+if(isset($_SESSION['user'])){
+    $user = $_SESSION['user'];
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -10,6 +20,7 @@
                 <div class="logo">
                     <img src="img/shopLogo.PNG" width="160px">
                 </div>
+                <h1><?php if($user!=null){echo "   Dobrodošli, ". $user->getName(). "!";}else{echo "Dobrodosli";};?></h1>
                 <nav>
                     <ul>
                         <li><a href="index.php">Glavna</a></li>
