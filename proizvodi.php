@@ -25,31 +25,31 @@
       <img src="img/slikaCipela.jpg" alt="Cipele">
       <h2>Cipele</h2>
       <p>cena: 5600</p>
-      <button onclick="addToCart('Cipele')">Dodaj u korpu</button>
+      <button onclick="dodajUKorpu('Cipele')">Dodaj u korpu</button>
     </div>
     <div class="product">
       <img src="img/slikaFarmerki.jpg" alt="Farmerke">
       <h2>Farmerke</h2>
       <p>cena: 4000</p>
-      <button onclick="addToCart('Farmerke')">Dodaj u korpu</button>
+      <button onclick="dodajUKorpu('Farmerke')">Dodaj u korpu</button>
     </div>
     <div class="product">
       <img src="img/slikaMajice.jpg" alt="Majica">
       <h2>Majica</h2>
       <p>cena: 2500</p>
-      <button onclick="addToCart('Majica')">Dodaj u korpu</button>
+      <button onclick="dodajUKorpu('Majica')">Dodaj u korpu</button>
     </div>
     <div class="product">
       <img src="img/slikaPatika.png" alt="Patike">
       <h2>Patike</h2>
       <p>cena: 11000</p>
-      <button onclick="addToCart('Patike')">Dodaj u korpu</button>
+      <button onclick="dodajUKorpu('Patike')">Dodaj u korpu</button>
     </div>
     <div class="product">
       <img src="img/slikaKosulje.jpg" alt="Kosulja">
       <h2>Kosulja</h2>
       <p>cena: 4200</p>
-      <button onclick="addToCart('Kosulja')">Dodaj u korpu</button>
+      <button onclick="dodajUKorpu('Kosulja')">Dodaj u korpu</button>
     </div>
   </div>
 
@@ -60,6 +60,6 @@
 </div>
 
 
-  <script src="shopping.js"></script>
+  <script src="AJAX/shopping.js"></script>
 </body>
 </html>

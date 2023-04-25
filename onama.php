@@ -2,7 +2,7 @@
 
 include "dbConn.php";
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submitbtn'])) {
     $naziv = $_POST['naziv'];
     $cena = $_POST['cena'];
     $opis = $_POST['opis'];
@@ -27,6 +27,7 @@ if (isset($_POST['submit'])) {
             }
         </style>
     </head>
+    
 <body>
     <div class="navbar">
                 <div class="logo">
@@ -60,6 +61,7 @@ if (isset($_POST['submit'])) {
     </style>
 </head>
 <body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <div class="container mt-5">
         <h1 class="mb-4">Ostavite komentar</h1>
         <form method="post">
@@ -79,7 +81,7 @@ if (isset($_POST['submit'])) {
                 <label for="korId"><b>Korisnikov ID:</b></label>
                 <input type="number" class="form-control" id="korId" name="korId" required>
             </div>
-            <button type="submit" class="btn btn-primary" name="submit">Potvrdi</button>
+            <button type="submit" class="btn btn-primary" name="submitbtn" id="submitbtn">Potvrdi</button>
             <button type="submit" class="btn btn-primary" name="deletebtn" id="deletebtn">Obriši komentare</button>
         </form>
     </div>
